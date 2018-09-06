@@ -7,8 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Store.Data;
 
 namespace Store
 {
@@ -31,8 +33,11 @@ namespace Store
 				options.MinimumSameSitePolicy = SameSiteMode.None;
 			});
 
-
-			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+			services.AddDbContext<StoreContext>(cfg =>
+			{
+				cfg.UseSqlServer(Configuration.GetConnectionString("StoreConnectionString"));
+				});
+			services.AddMvc();//.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,14 +49,14 @@ namespace Store
 			}
 			else
 			{
-				app.UseExceptionHandler("/Home/Error");
+				app.UseExceptionHandler("/Error");
 				app.UseHsts();
 			}
 
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
-			app.UseCookiePolicy();
 			app.UseNodeModules(env);
+			app.UseCookiePolicy();
 			app.UseMvc(routes =>
 			{
 

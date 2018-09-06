@@ -3,32 +3,23 @@
     ViewData["Title"] = "Index";
 	ViewBag.Title = "Home page";
 }
-<!DOCTYPE html>
-<html>
-	<head>
-
-		<title>Pet store: @ViewBag.Title</title>
 		
-		<body>
+		<title>Pet store: @ViewBag.Title</title>
+		<div class="col-md-6">
 			<h2>Pet store</h2>
+			
+				<div class="product-info">
+					<img class="img-fluid" src="~/images/hamster.jpg" />
+					<h3> Hamster</h3>
+					<ul>
+						<li>Price : 5</li>
+						<li>Gender : m</li>
+						<li>Name : goshko</li>
+						<li>Description: ape</li>
 
-			<div class="product-info">
-				<img src="~/images/banner1.svg" />
-				<h3> Hamster</h3>
-				<ul class="product-props">
-					<li>Price : 5</li>
-					<li>Gender : m</li>
-					<li>Name : goshko</li>
-					<li>Description: ape</li>
-					
-				</ul>
-				<button class="btn-success">Buy</button>
-			</div>
-
-		</body>
-
-	</head>
-
-</html>
-<h2>Index</h2>
+					</ul>
+					<button class="btn btn-success">Buy</button>
+				</div>
+			
+		</div>
 

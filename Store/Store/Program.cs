@@ -19,6 +19,14 @@ namespace Store
 
 		public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 			WebHost.CreateDefaultBuilder(args)
+				.ConfigureAppConfiguration(SetupConfiguration)
 				.UseStartup<Startup>();
+
+		private static void SetupConfiguration(WebHostBuilderContext ctx, IConfigurationBuilder configBuilder)
+		{
+			configBuilder.Sources.Clear();
+			configBuilder.AddJsonFile("config.json", false, true)
+						 .AddEnvironmentVariables();
+		}
 	}
 }
