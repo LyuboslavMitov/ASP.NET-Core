@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Store.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Store.Data
 {
-	public class StoreContext : DbContext
+	public class StoreContext : IdentityDbContext<StoreUser>
 	{
 
 		public StoreContext(DbContextOptions<StoreContext> options)

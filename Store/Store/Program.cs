@@ -29,7 +29,7 @@ namespace Store
 			using (var scope = scopeFactory.CreateScope())
 			{
 				var seeder = scope.ServiceProvider.GetService<StoreSeeder>();
-				seeder.Seed();
+				seeder.SeedAsync().Wait();
 			}
 		}
 

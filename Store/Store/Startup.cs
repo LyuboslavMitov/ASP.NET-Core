@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Store.Data;
+using Store.Data.Entities;
 
 namespace Store
 {
@@ -32,6 +34,11 @@ namespace Store
 				options.CheckConsentNeeded = context => true;
 				options.MinimumSameSitePolicy = SameSiteMode.None;
 			});
+			services.AddIdentity<StoreUser, IdentityRole>(cfg =>
+			{
+				cfg.User.RequireUniqueEmail = true;
+			}	
+			).AddEntityFrameworkStores<StoreContext>();
 
 			services.AddTransient<StoreSeeder>();
 			services.AddScoped<IStoreRepository, StoreRepository>();
@@ -54,7 +61,7 @@ namespace Store
 				app.UseExceptionHandler("/Error");
 				app.UseHsts();
 			}
-
+			app.UseAuthentication();
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
 			app.UseNodeModules(env);

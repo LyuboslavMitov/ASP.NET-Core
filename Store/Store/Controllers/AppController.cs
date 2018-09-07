@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Store.Data;
 using Store.Models;
 using System;
@@ -44,6 +45,7 @@ namespace Store.Controllers
 			ViewBag.Title = "About";
 			return View();
 		}
+		[Authorize]
 		public IActionResult Shop()
 		{
 			var results = db.GetAllProducts();
