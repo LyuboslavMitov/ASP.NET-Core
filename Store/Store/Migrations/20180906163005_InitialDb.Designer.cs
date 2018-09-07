@@ -10,7 +10,7 @@ using Store.Data;
 namespace Store.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20180906055246_InitialDb")]
+    [Migration("20180906163005_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,10 @@ namespace Store.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Orders");
+
+                    b.HasData(
+                        new { Id = 1, OrderDate = new DateTime(2018, 9, 6, 16, 30, 5, 228, DateTimeKind.Utc), OrderNumber = "12345" }
+                    );
                 });
 
             modelBuilder.Entity("Store.Data.Entities.OrderItem", b =>
@@ -65,17 +69,27 @@ namespace Store.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("BirthDate");
+                    b.Property<string>("ArtDating");
+
+                    b.Property<string>("ArtDescription");
+
+                    b.Property<string>("ArtId");
+
+                    b.Property<string>("Artist");
+
+                    b.Property<DateTime>("ArtistBirthDate");
+
+                    b.Property<DateTime>("ArtistDeathDate");
+
+                    b.Property<string>("ArtistNationality");
 
                     b.Property<string>("Category");
-
-                    b.Property<string>("MotherName");
-
-                    b.Property<string>("Name");
 
                     b.Property<decimal>("Price");
 
                     b.Property<string>("Size");
+
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 

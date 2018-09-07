@@ -31,9 +31,14 @@ namespace Store.Migrations
                     Category = table.Column<string>(nullable: true),
                     Size = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    MotherName = table.Column<string>(nullable: true),
-                    BirthDate = table.Column<DateTime>(nullable: false)
+                    Title = table.Column<string>(nullable: true),
+                    ArtDescription = table.Column<string>(nullable: true),
+                    ArtDating = table.Column<string>(nullable: true),
+                    ArtId = table.Column<string>(nullable: true),
+                    Artist = table.Column<string>(nullable: true),
+                    ArtistBirthDate = table.Column<DateTime>(nullable: false),
+                    ArtistDeathDate = table.Column<DateTime>(nullable: false),
+                    ArtistNationality = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -67,6 +72,11 @@ namespace Store.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Orders",
+                columns: new[] { "Id", "OrderDate", "OrderNumber" },
+                values: new object[] { 1, new DateTime(2018, 9, 6, 16, 30, 5, 228, DateTimeKind.Utc), "12345" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItem_OrderId",

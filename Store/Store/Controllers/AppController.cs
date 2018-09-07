@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Store.Data;
 using Store.Models;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,14 @@ namespace Store.Controllers
 {
 	public class AppController :Controller
 	{
+		private readonly IStoreRepository db;
+		public AppController(IStoreRepository _db)
+		{
+			db = _db;
+		}
 		public IActionResult Index()
 		{
+			var products = db.GetAllProducts();
 			return View();
 		}
 		[HttpGet("Contact")]
@@ -36,6 +43,11 @@ namespace Store.Controllers
 		{
 			ViewBag.Title = "About";
 			return View();
+		}
+		public IActionResult Shop()
+		{
+			var results = db.GetAllProducts();
+			return View(results);
 		}
 	}
 }
