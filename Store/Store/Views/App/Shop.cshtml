@@ -1,27 +1,33 @@
 ﻿@model IEnumerable<Product>
-@{
-    ViewData["Title"] = "Shop";
+@section Scripts{
+	<script src="~/ClientApp/dist/runtime.js"></script>
+	<script src="~/ClientApp/dist/polyfills.js"></script>
+	<script src="~/ClientApp/dist/styles.js"></script>
+	<script src="~/ClientApp/dist/vendor.js"></script>
+	<script src="~/ClientApp/dist/main.js"></script>
 }
-
 <h2>Shop</h2>
-<p>Count: @Model.Count()</p>
-<div class="row">
-	@foreach (var p in Model)
-	{
-	<div class="col-md-3">
-		<div class="border rounded bg-light p-1">
-			<img class="img-fluid" src="~/images/@(p.ArtId).jpg" alt="@p.Title" />
-			<h3>@p.Category - @p.Size</h3>
-			<ul>
-				<li>Price : @p.Price</li>
-				<li>Artist: @p.Artist</li>
-				<li>Title: @p.Title</li>
-				<li>Description:@p.ArtDescription</li>
+<the-shop></the-shop>
+@*<p>Count: @Model.Count()</p>
+	<div class="row">
+		@foreach (var p in Model)
+		{
+		<div class="col-md-3">
+			<div class="border rounded bg-light p-1">
+				<img class="img-fluid" src="~/images/@(p.ArtId).jpg" alt="@p.Title" />
+				<h3>@p.Category - @p.Size</h3>
+				<ul>
+					<li>Price : @p.Price</li>
+					<li>Artist: @p.Artist</li>
+					<li>Title: @p.Title</li>
+					<li>Description:@p.ArtDescription</li>
 
-			</ul>
-			<button class="btn btn-success">Buy</button>
+				</ul>
+				<button class="btn btn-success">Buy</button>
+			</div>
 		</div>
-	</div>
-	}
-	</div>
+		}
+		</div>*@
+
+
 
