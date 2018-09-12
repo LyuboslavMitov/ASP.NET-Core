@@ -11,6 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\shared\dataService.ts" />
+    <None Remove="ClientApp\app\shop\productList.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Include="OdeToCode.UseNodeModules" Version="1.0.6" />
@@ -26,11 +31,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\" />
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\shared\dataService.ts" />
+    <TypeScriptCompile Include="ClientApp\app\shop\productList.ts" />
     <TypeScriptCompile Include="wwwroot\ts\main.ts" />
     <TypeScriptCompile Include="wwwroot\ts\storecustomer.ts" />
   </ItemGroup>

@@ -7,12 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { Component } from '@angular/core';
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'The best store';
+        this.title = 'Product list';
     }
     AppComponent = __decorate([
         Component({
             selector: 'the-shop',
-            template: "\n      <h1>\n        Welcome to {{title}}!\n      </h1>\n  ",
+            templateUrl: "./app.component.html",
             styles: []
         })
     ], AppComponent);

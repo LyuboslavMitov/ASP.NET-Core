@@ -48,8 +48,7 @@ namespace Store.Controllers
 		[Authorize]
 		public IActionResult Shop()
 		{
-			var results = db.GetAllProducts();
-			return View(results);
+			return View();
 		}
 	}
 }

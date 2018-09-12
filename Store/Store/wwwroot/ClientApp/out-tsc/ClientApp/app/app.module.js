@@ -6,19 +6,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
+import { ProductList } from './shop/productList';
+import { DataService } from './shared/dataService';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         NgModule({
             declarations: [
-                AppComponent
+                AppComponent,
+                ProductList
             ],
             imports: [
-                BrowserModule
+                BrowserModule,
+                HttpModule
             ],
-            providers: [],
+            providers: [
+                DataService
+            ],
             bootstrap: [AppComponent]
         })
     ], AppModule);
