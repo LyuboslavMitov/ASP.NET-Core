@@ -219,6 +219,11 @@ var ProductList = /** @class */ (function () {
         this.data = data;
         this.products = data.products;
     }
+    ProductList.prototype.ngOnInit = function () {
+        var _this = this;
+        this.data.loadProducts()
+            .subscribe(function (result) { return _this.products = result; });
+    };
     ProductList = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: "product-list",

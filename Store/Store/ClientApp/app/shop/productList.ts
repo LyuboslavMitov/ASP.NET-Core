@@ -6,14 +6,14 @@ import { DataService } from "../shared/dataService";
     templateUrl: "productList.component.html",
     styleUrls: []
 })
-export class ProductList {//implements OnInit {
+export class ProductList implements OnInit {
     public products;
 
      constructor(private data: DataService) {
          this.products = data.products;
      }
-     /*ngOnInit(): void {
+     ngOnInit(): void {
          this.data.loadProducts()
-             .subscribe(() => this.products = this.data.products);
-     }*/
+             .subscribe(result => this.products = result);
+    }
 }
