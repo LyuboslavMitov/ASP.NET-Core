@@ -4,10 +4,12 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ProductList } from './shop/productList';
 import { DataService } from './shared/dataService'
+import { Cart } from './shop/cart.component';
 @NgModule({
   declarations: [
       AppComponent,
-      ProductList
+      ProductList,
+      Cart
   ],
   imports: [
       BrowserModule,
